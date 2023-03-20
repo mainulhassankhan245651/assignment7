@@ -1,4 +1,5 @@
 
+
 **Using employees table & departments table **
 
 a. Query to select all columns and rows from the employees table.
