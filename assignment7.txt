@@ -1,0 +1,90 @@
+
+**Using employees table & departments table **
+
+a. Query to select all columns and rows from the employees table.
+
+    SELECT * FROM employees;
+    -- This command selects all columns and rows from the employees table.
+
+b. Write a query to select only the name and salary columns of all employees with a salary greater than 50000.
+
+    SELECT name, salary FROM employees WHERE salary > 50000;
+    -- This command selects only the name and salary columns of all employees with a salary greater than 50000.
+
+c. Query to calculate the average salary of all employees.
+
+    SELECT AVG(salary) FROM employees;
+    -- This command calculates the average salary of all employees.
+
+d. Query to count the number of employees who work in the "Marketing" department.
+
+    SELECT COUNT(*) FROM employees WHERE department_id = (SELECT id FROM departments WHERE name = 'Marketing');
+    -- This command counts the number of employees who work in the "Marketing" department.
+
+e. Query to update the salary column of the employee with an id of 1001 to 60000.
+
+    UPDATE employees SET salary = 60000 WHERE id = 1001;
+    -- This command updates the salary column of the employee with an id of 1001 to 60000.
+
+
+f. Write a query to delete all employees whose salary is less than 30000.
+
+    DELETE FROM employees WHERE salary < 30000;
+    -- This command deletes all employees whose salary is less than 30000.
+
+
+
+***Using departments table***
+
+
+a. Query to select all columns and rows from the departments table.
+    SELECT * FROM departments;
+    -- This command selects all columns and rows from the departments table.
+
+b. Query to select only the name and manager columns of the "Finance" department.
+
+    SELECT name, manager FROM departments WHERE name = 'Finance';
+    -- This command selects only the name and manager columns of the "Finance" department.
+
+c. Query to calculate the total number of employees in each department.
+
+    SELECT departments.name, COUNT(*) AS total_employees 
+    FROM employees JOIN departments ON employees.department_id = departments.id GROUP BY departments.name;
+    -- This command calculates the total number of employees in each department.
+
+d. Query to insert a new department called "Research" with a manager named "John Doe".
+
+    INSERT INTO departments (name, manager) VALUES ('Research', 'John Doe');
+    -- This command inserts a new department called "Research" with a manager named "John Doe".
+
+
+Explanation-1:
+
+a.This command selects all columns and rows from the employees table using the SELECT statement with the * (wildcard) symbol to include all columns.
+
+b.This command selects only the name and salary columns of all employees with a salary greater than 50000. The WHERE clause filters the results to only include employees with a salary greater than 50000.
+
+c.This command calculates the average salary of all employees using the AVG() function. The SELECT statement only returns the calculated average salary.
+
+d.This command counts the number of employees who work in the "Marketing" department. The WHERE clause filters the results to only include employees who work in the "Marketing" department by first selecting the id of the "Marketing" department from the departments table and then using it to filter the employees table.
+
+e.This command updates the salary column of the employee with an id of 1001 to 60000 using the UPDATE statement. The WHERE clause filters the update to only apply to the employee with an id of 1001.
+
+f.This command deletes all employees whose salary is less than 30000 using the DELETE statement. The WHERE clause filters the delete to only apply to employees with a salary less than 30000.
+
+
+
+
+Explanation-2:
+a.This command selects all columns and rows from the departments table using the SELECT statement with the * (wildcard) symbol to include all columns.
+
+b.This command selects only the name and manager columns of the "Finance" department using the WHERE clause to filter the results to only include the "Finance" department.
+
+c.This command calculates the total number of employees in each department using the COUNT() function and the GROUP BY clause to group the results by department name.
+
+d.This command inserts a new department called "Research" with a manager named "John Doe" using the INSERT INTO statement. The VALUES clause specifies the values to be inserted into the columns for the new department.
+
+
+
+
+
